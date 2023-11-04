@@ -5,6 +5,7 @@ import { post } from '@rails/request.js'
 // Connects to data-controller="translation"
 export default class extends Controller {
   static targets = [ "content"]
+  static values = {messageId: String}
 
   buttonLoading(button) {
     button.innerText = "Translating..."
@@ -26,7 +27,8 @@ export default class extends Controller {
 
     const response = await post('/translate', {
       body: JSON.stringify({
-        content: this.contentTarget.innerText
+        content: this.contentTarget.innerText,
+        message_id: this.messageIdValue
       })})
 
     if(!response.ok) {

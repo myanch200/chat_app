@@ -20,6 +20,9 @@
   max-height: 90vh; /* Example height */
 }
 
+.text-balance {
+  text-wrap: balance
+}
 
 .fade-in {
   animation: fadeIn ease 0.2s;

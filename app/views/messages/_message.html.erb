@@ -2,9 +2,9 @@
   <div class="font-medium text-gray-800">
     <%= message.user.email %>
   </div>
-  <div class="text-gray-600" data-controller="text-speech copy-to-clipboard translation">
-    <div class="py-5">
-       <p data-text-speech-target='content' data-copy-to-clipboard-target="content" data-translation-target='content'>
+  <div class="overflow-hidden text-gray-600" data-controller="text-speech copy-to-clipboard translation" data-translation-message-id-value=<%= message.id %>>
+    <div class="py-5 text-balance">
+       <p data-text-speech-target='content' data-copy-to-clipboard-target="content" data-translation-target='content' class="break-words">
         <%= message.content %>
       </p>
     </div>
