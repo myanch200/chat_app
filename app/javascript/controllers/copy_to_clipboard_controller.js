@@ -3,9 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="copy-to-clipboard"
 export default class extends Controller {
   static targets = [ "content", "copyMessage" ]
-  connect() {
-    console.log('copy to clipboard');
-  }
 
   copy(event) {
     event.preventDefault();

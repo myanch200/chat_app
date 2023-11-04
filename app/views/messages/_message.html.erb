@@ -2,10 +2,13 @@
   <div class="font-medium text-gray-800">
     <%= message.user.email %>
   </div>
-  <div class="text-gray-600" data-controller="text-speech copy-to-clipboard">
-    <p data-text-speech-target='content' data-copy-to-clipboard-target="content">
-      <%= message.content %>
-    </p>
+  <div class="text-gray-600" data-controller="text-speech copy-to-clipboard translation">
+    <div class="py-5">
+       <p data-text-speech-target='content' data-copy-to-clipboard-target="content" data-translation-target='content'>
+        <%= message.content %>
+      </p>
+    </div>
+   
 
     <div class="inline-flex px-5 py-2 mt-2 cursor-pointer bg-sky-50" data-action="click->text-speech#speak">
       <%= inline_svg 'icons/speaker.svg', class: 'w-6 h-6 '%>
@@ -15,6 +18,13 @@
       <%= inline_svg 'icons/copy.svg', class: 'w-6 h-6 '%>
       <p data-copy-to-clipboard-target="copyMessage">
         Copy
+      </p>
+    </div>
+
+    <div class="inline-flex gap-2 px-2 py-2 mt-2 cursor-pointer bg-sky-50" data-action="click->translation#translate">
+      <%= inline_svg 'icons/translate.svg', class: 'w-6 h-6 '%>
+      <p>
+        Translate
       </p>
     </div>
   </div>

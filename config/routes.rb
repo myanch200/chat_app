@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'translate', to: 'translations#translate', as: :translate
   get 'messages/index'
   get 'messages/new'
   get 'messages/create'

@@ -16,6 +16,8 @@ gem "puma", ">= 5.0"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
+gem 'easy_translate'
+
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
@@ -73,3 +75,5 @@ end
 gem "devise", "~> 4.9"
 
 gem "inline_svg", "~> 1.9"
+
+gem "requestjs-rails", "~> 0.0.10"

@@ -7,9 +7,7 @@ export default class extends Controller {
 
   }
 
-  speak(event) {
-    console.log(this.contentTarget.innerText);
-
+  speak() {
     const utterance = new SpeechSynthesisUtterance(this.contentTarget.innerText);
 
     utterance.lang = 'en-US';
