@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+
+ #messages {
+  overflow-y: auto;
+  max-height: 90vh; /* Example height */
+}

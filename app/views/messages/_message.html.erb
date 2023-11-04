@@ -1,4 +1,8 @@
-<div>
-  <strong><%= message.user.email %>:</strong>
-  <%= message.content %>
+<div id="<%= dom_id(message) %>" class="max-w-md p-4 mx-auto bg-white rounded-lg shadow" data-controller="scroll-bottom" data-action="turbo:render->scroll-bottom#scrollToBottom">
+  <div class="font-medium text-gray-800">
+    <%= message.user.email %>
+  </div>
+  <div class="text-gray-600">
+    <%= message.content %>
+  </div>
 </div>

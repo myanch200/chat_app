@@ -1,0 +1,20 @@
+<%= form_with model: message, id: 'new_message', data: { controller: "message", action: 'turbo:submit-end->message#resetForm' } do |form| %>
+  <% if message.errors.any? %>
+    <div id="error_explanation" class="mb-4">
+      <div class="relative px-4 py-3 text-red-700 bg-red-100 border border-red-400 rounded" role="alert">
+        <strong class="font-bold">Oops!</strong>
+        <span class="block sm:inline">There were some problems with your input.</span>
+        <ul class="list-disc list-inside">
+          <% message.errors.each do |attribute, message| %>
+            <li><%= attribute.to_s.humanize %> <%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  
+  <div class="flex gap-2">
+    <%= form.text_area :content, class: "flex-1 p-2 border border-gray-300 rounded-md", placeholder: "Type your message here..." %>
+    <%= form.submit "Send", class: "px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300" %>
+  </div>
+<% end %>

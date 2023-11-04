@@ -1,14 +1,12 @@
 <%= turbo_stream_from "messages" %>
 
-<div id="messages" class="mb-10">
+<div id="messages" class="h-screen p-4 space-y-4 overflow-auto bg-gray-50 md:h-auto" >
+  <p>
+    Last refreshed <%= Time.now %>
+  </p>
   <%= render @messages %>
 </div>
+<div class="inset-x-0 bottom-0 p-4 bg-white shadow ">
 
-<%= form_with model: Message.new, id: 'new_message', html: {data: { controller: "message", action: "turbo:submit-end->message#resetForm" }} do |form| %>
-  <div>
-    <%= form.rich_text_area :content %>
-  </div>
-  <div>
-    <%= form.submit "Send" %>
-  </div>
-<% end %>
+  <%= render 'form', message: Message.new %>
+</div>

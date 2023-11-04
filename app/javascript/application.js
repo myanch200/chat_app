@@ -4,3 +4,13 @@ import "controllers"
 
 import "trix"
 import "@rails/actiontext"
+
+
+document.addEventListener("turbo:load", scrollToBottom);
+document.addEventListener("turbo:render", scrollToBottom);
+
+function scrollToBottom() {
+  console.log('scrollToBottom');
+  const messages = document.getElementById('messages');
+  messages.scrollTop = messages.scrollHeight;
+}

@@ -10,14 +10,20 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = current_user.messages.create!(message_params)
-    
-    if @message.save
-      redirect_to messages_path
-    else
-      render :new
+    @message = current_user.messages.build(message_params)
+  
+    respond_to do |format|
+      if @message.save
+        format.turbo_stream
+        format.html { redirect_to messages_path, notice: "Message sent." }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(@message, partial: "messages/form", locals: { message: @message }) }
+      end
     end
   end
+  
+  
 
 
   private
