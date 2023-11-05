@@ -11,7 +11,9 @@ export default class extends Controller {
     const utterance = new SpeechSynthesisUtterance(this.contentTarget.innerText);
 
     utterance.lang = 'en-US';
-
+    
+    // cancel any previous utterances
+    speechSynthesis.cancel();
     speechSynthesis.speak(utterance);
   }
 }
